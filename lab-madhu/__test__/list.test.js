@@ -115,7 +115,7 @@ describe('List module', () => {
     myList.push(1);
     myList.push(2);
     myList.push(3);
-    expect(myList.reduce((accumulator, currentValue) => accumulator + currentValue)).toEqual(6);
+    expect(myList.reduce(((accumulator, currentValue) => accumulator + currentValue),0)).toEqual(6);
   });
 
   it('reduce() method expects a function as argument',()=>{
@@ -124,6 +124,21 @@ describe('List module', () => {
     myList.push(1);
     myList.push(2);
     expect(myList.reduce(variable)).toEqual(`${variable} is not a type of function`);
+  });
+  it('reduce() method provides input by adding hyphen in between my input values',()=>{
+    let myList = new list();
+    myList.push('twinkle');
+    myList.push('twinkle');
+    myList.push('little');
+    myList.push('star');
+    expect(myList.reduce(((accumulator, currentValue) => accumulator + '-' + currentValue),'')).toEqual('twinkle-twinkle-little-star');
+  });
+  it('reduce() method handles when inital value is not passed by caller',()=>{
+    let myList = new list();
+    myList.push(1);
+    myList.push(2);
+    myList.push(3);
+    expect(myList.reduce(((accumulator, currentValue) => accumulator + currentValue))).toEqual(6);
   });
 
 } );

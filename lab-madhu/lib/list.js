@@ -45,15 +45,23 @@ class List{
     }
     return arr;
   }
-  reduce(func) {
+  reduce(func,initialAccum) {
     if(typeof func !== 'function'){
       return `${func} is not a type of function`;
     }
-    let sum = 0;
-    for(let i=0; i<this.length; i++){
-      sum = func(sum,this[i]);
+    if(initialAccum === undefined){
+      initialAccum = 0;
     }
-    return sum;
+    let accum = initialAccum;
+    for(let i=0; i<this.length; i++){
+      if(i===0){
+        accum = accum + this[i]; 
+      }
+      if(i!==0){
+        accum = func(accum,this[i]);
+      }
+    }
+    return accum;
   }
 }
 module.exports = List;
