@@ -1,6 +1,9 @@
-<img src="https://travis-ci.org/travis-ci/travis-web.svg?branch=master">
+
+<img src="https://travis-ci.com/mrebb/02-tools-and-context.svg?branch=master">
+
 List module
 =================
+
 List lib module has below methods that tests for different cases
 
 1) push(): Takes an argument, add to object and return new length of array. Verified for new element and length of array.
